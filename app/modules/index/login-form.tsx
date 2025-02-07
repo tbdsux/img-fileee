@@ -1,6 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "@tanstack/react-router";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
+import { loginFn } from "~/auth/server-fn";
 import { Button } from "~/components/ui/button";
 import {
   Form,
@@ -22,6 +27,8 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 export default function MainLoginForm() {
+  const router = useRouter();
+
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -30,7 +37,32 @@ export default function MainLoginForm() {
     },
   });
 
-  const handleSubmit = (data: FormData) => {};
+  const mutateLogin = useMutation({
+    mutationFn: loginFn,
+  });
+
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const handleSubmit = async (data: FormData) => {
+    const process = toast.loading("Logging in...");
+    setIsProcessing(true);
+
+    await mutateLogin.mutateAsync(
+      { data },
+      {
+        onError: (error) => {
+          toast.error(error.message, { id: process });
+          setIsProcessing(false);
+        },
+        onSuccess: () => {
+          toast.success("Logged in successfully", { id: process });
+          setIsProcessing(false);
+
+          router.navigate({ to: "/d" });
+        },
+      }
+    );
+  };
 
   return (
     <div className="w-1/2 mx-auto">
@@ -44,7 +76,11 @@ export default function MainLoginForm() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Your email account" />
+                    <Input
+                      type="email"
+                      {...field}
+                      placeholder="Your email account"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -58,7 +94,11 @@ export default function MainLoginForm() {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Your password" />
+                    <Input
+                      type="password"
+                      {...field}
+                      placeholder="Your password"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -66,7 +106,9 @@ export default function MainLoginForm() {
             />
 
             <div>
-              <Button type="submit">Log In</Button>
+              <Button disabled={isProcessing} type="submit">
+                Log In
+              </Button>
             </div>
           </div>
         </form>
