@@ -8,11 +8,12 @@ import { Button } from "~/components/ui/button";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormMessage,
 } from "~/components/ui/form";
-import { useUpload } from "~/hooks/use-upload";
+import { UploadedFile, useUpload } from "~/hooks/use-upload";
 import { cn } from "~/lib/utils";
 import { FileUploader } from "./file-uploader";
 import { UploadedFilesCard } from "./uploaded-files-card";
@@ -24,6 +25,8 @@ const uploadSchema = z.object({
 type UploadSchema = z.infer<typeof uploadSchema>;
 
 const ImageUploader = (props: { className?: string }) => {
+  const [fileUploads, setFileUploads] = useState<UploadedFile[]>([]);
+
   const {
     handleUpload,
     progresses,
@@ -105,6 +108,9 @@ const ImageUploader = (props: { className?: string }) => {
                     disabled={isUploading}
                   />
                 </FormControl>
+                <FormDescription>
+                  * Do not upload any sensitive or personal information.
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}

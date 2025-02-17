@@ -85,8 +85,8 @@ export const useUpload = <T = Record<string, unknown>>(
           },
         })
         .then(() => {
-          setSuccessfulUploads([
-            ...successfulUploads,
+          setSuccessfulUploads((prev) => [
+            ...prev,
             {
               key: signedUrl.fileKey,
               url: signedUrl.cdnUrl,
