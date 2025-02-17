@@ -1,8 +1,13 @@
-import { Outlet, createRootRoute } from "@tanstack/react-router";
+import {
+  HeadContent,
+  Outlet,
+  Scripts,
+  createRootRoute,
+} from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import { Meta, Scripts } from "@tanstack/start";
 import * as React from "react";
 import { DefaultCatchBoundary } from "~/components/DefaultCatchBoundary";
+import AppHeader from "~/components/header";
 import { NotFound } from "~/components/NotFound";
 import Providers from "~/components/providers";
 import appCss from "~/styles/app.css?url";
@@ -62,7 +67,11 @@ function RootComponent() {
   return (
     <RootDocument>
       <Providers>
-        <Outlet />
+        <div className="w-5/6 mx-auto">
+          <AppHeader />
+
+          <Outlet />
+        </div>
       </Providers>
     </RootDocument>
   );
@@ -70,9 +79,9 @@ function RootComponent() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html className="dark">
       <head>
-        <Meta />
+        <HeadContent />
       </head>
       <body>
         {children}

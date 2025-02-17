@@ -1,30 +1,25 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
-import { getCurrentUser } from "~/auth/server-fn";
-import MainLoginForm from "~/modules/index/login-form";
+import { createFileRoute } from "@tanstack/react-router";
+import ImageUploader from "~/modules/uploader/uploader";
 
 export const Route = createFileRoute("/")({
   component: Home,
-  beforeLoad: async () => {
-    const session = await getCurrentUser();
-
-    if (session) {
-      throw redirect({
-        to: "/d",
-      });
-    }
-  },
+  ssr: false,
 });
 
 function Home() {
   return (
-    <div className="flex items-center justify-center min-h-screen py-24">
-      <div className="space-y-12 w-full">
-        <div className="text-center">
-          <h1 className="text-3xl font-black">fileee</h1>
-          <p className="text-lg">Personal file hosting</p>
-        </div>
+    <div className="flex flex-col items-center justify-center py-24 gap-12">
+      <div className="text-center">
+        <h1 className="text-3xl font-black">img-fileee</h1>
 
-        <MainLoginForm />
+        <p className="text-muted-foreground">{">"} A free image hosting</p>
+        <p className="text-muted-foreground">
+          Upload / host images anonymously. No account required.
+        </p>
+      </div>
+
+      <div className="w-full ">
+        <ImageUploader />
       </div>
     </div>
   );

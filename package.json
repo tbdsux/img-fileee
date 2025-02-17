@@ -9,36 +9,52 @@
     "start": "vinxi start"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.749.0",
+    "@aws-sdk/s3-request-presigner": "^3.749.0",
     "@hookform/resolvers": "^3.10.0",
-    "@radix-ui/react-label": "^2.1.1",
-    "@radix-ui/react-slot": "^1.1.1",
-    "@tanstack/react-query": "^5.66.0",
-    "@tanstack/react-router": "^1.99.6",
-    "@tanstack/router-devtools": "^1.99.6",
-    "@tanstack/start": "^1.99.6",
+    "@lylajs/web": "^2.0.3",
+    "@radix-ui/react-label": "^2.1.2",
+    "@radix-ui/react-progress": "^1.1.2",
+    "@radix-ui/react-scroll-area": "^1.2.3",
+    "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-tooltip": "^1.1.8",
+    "@tailwindcss/postcss": "^4.0.6",
+    "@tanstack/react-query": "^5.66.3",
+    "@tanstack/react-router": "^1.105.0",
+    "@tanstack/router-devtools": "^1.105.0",
+    "@tanstack/start": "^1.105.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.474.0",
+    "nanoid": "^5.1.0",
     "next-themes": "^0.4.4",
     "pocketbase": "^0.25.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.5",
     "react-hook-form": "^7.54.2",
+    "react-use": "^17.6.0",
     "redaxios": "^0.5.1",
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "vinxi": "0.5.1",
-    "zod": "^3.24.1"
+    "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@types/node": "^22.5.4",
-    "@types/react": "^19.0.8",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.9",
     "@types/react-dom": "^19.0.3",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.1",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^4.0.6",
+    "typescript": "^5.7.3",
     "vite-tsconfig-paths": "^5.1.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild"
+    ]
   }
 }
