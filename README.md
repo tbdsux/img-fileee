@@ -1,3 +1,5 @@
+![Logo](./public/apple-touch-icon.png)
+
 # img-fileee
 
 An image hosting web service app.
