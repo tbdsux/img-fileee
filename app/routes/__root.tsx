@@ -7,6 +7,7 @@ import {
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import * as React from "react";
 import { DefaultCatchBoundary } from "~/components/DefaultCatchBoundary";
+import AppFooter from "~/components/footer";
 import AppHeader from "~/components/header";
 import { NotFound } from "~/components/NotFound";
 import Providers from "~/components/providers";
@@ -71,6 +72,8 @@ function RootComponent() {
           <AppHeader />
 
           <Outlet />
+
+          <AppFooter />
         </div>
       </Providers>
     </RootDocument>

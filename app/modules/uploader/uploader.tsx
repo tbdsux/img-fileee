@@ -13,7 +13,7 @@ import {
   FormItem,
   FormMessage,
 } from "~/components/ui/form";
-import { UploadedFile, useUpload } from "~/hooks/use-upload";
+import { useUpload } from "~/hooks/use-upload";
 import { cn } from "~/lib/utils";
 import { FileUploader } from "./file-uploader";
 import { UploadedFilesCard } from "./uploaded-files-card";
@@ -25,8 +25,6 @@ const uploadSchema = z.object({
 type UploadSchema = z.infer<typeof uploadSchema>;
 
 const ImageUploader = (props: { className?: string }) => {
-  const [fileUploads, setFileUploads] = useState<UploadedFile[]>([]);
-
   const {
     handleUpload,
     progresses,
