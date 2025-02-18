@@ -46,6 +46,16 @@ Simple docker and compose config files are available for self hosting.
 docker compose up -d --build
 ```
 
+### Cloudflare Worker
+
+You need to deploy a worker to host for your private backblaze bucket (`B2_BUCKET_NAME`).
+This is needed for `CDN_CLOUDFLARE_URL`
+
+> Deploy your own instance:
+> https://github.com/backblaze-b2-samples/cloudflare-b2
+
+Currently the app / service is configured for `$host` deployment of the cloudflare worker proxy. Make sure to set this in `$BUCKET_NAME` config in the worker.
+
 ## Thanks
 
 - https://github.com/sadmann7/file-uploader
