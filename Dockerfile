@@ -41,7 +41,7 @@ COPY --from=builder --chown=tanstack-start:nodejs /app/legal ./legal
 COPY --from=builder --chown=tanstack-start:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=tanstack-start:nodejs /app/package.json ./package.json
 
-ARG PORT=4444
+ARG PORT=4545
 ENV PORT=${PORT}
 EXPOSE ${PORT}
 

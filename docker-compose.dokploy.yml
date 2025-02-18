@@ -18,7 +18,7 @@ services:
       B2_APPLICATION_KEY_ID: ${B2_APPLICATION_KEY_ID:?B2_APPLICATION_KEY_ID not set}
       B2_APPLICATION_KEY: ${B2_APPLICATION_KEY:?B2_APPLICATION_KEY not set}
     expose:
-      - 3333
+      - 4545
     networks:
       - dokploy-network
     env_file:
