@@ -3,7 +3,6 @@ import ImageUploader from "~/modules/uploader/uploader";
 
 export const Route = createFileRoute("/")({
   component: Home,
-  ssr: false,
 });
 
 function Home() {
