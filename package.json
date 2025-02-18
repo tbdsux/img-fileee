@@ -12,6 +12,7 @@
     "@aws-sdk/client-s3": "^3.749.0",
     "@aws-sdk/s3-request-presigner": "^3.749.0",
     "@hookform/resolvers": "^3.10.0",
+    "@icons-pack/react-simple-icons": "^11.2.0",
     "@lylajs/web": "^2.0.3",
     "@radix-ui/react-label": "^2.1.2",
     "@radix-ui/react-progress": "^1.1.2",
