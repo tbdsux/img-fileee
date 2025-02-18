@@ -37,3 +37,16 @@ B2_APPLICATION_KEY=app-key
 ```
 pnpm dev
 ```
+
+### Docker Deploy
+
+Simple docker and compose config files are available for self hosting.
+
+```
+docker compose up -d --build
+```
+
+## Thanks
+
+- https://github.com/sadmann7/file-uploader
+  - For the file upload components / inspiration
