@@ -87,7 +87,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
-        <TanStackRouterDevtools position="bottom-right" />
+        {process.env.NODE_ENV === "development" ? (
+          <TanStackRouterDevtools position="bottom-right" />
+        ) : null}
         <Scripts />
       </body>
     </html>
