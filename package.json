@@ -1,5 +1,5 @@
 {
-  "name": "tanstack-start-example-basic",
+  "name": "img-fileee",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -60,5 +60,6 @@
       "@parcel/watcher",
       "esbuild"
     ]
-  }
+  },
+  "packageManager": "pnpm@10.4.1"
 }

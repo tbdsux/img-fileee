@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        CDN_CLOUDFLARE_URL: ${CDN_CLOUDFLARE_URL:?CDN_CLOUDFLARE_URL not set}
+        B2_BUCKET_NAME: ${B2_BUCKET_NAME:?B2_BUCKET_NAME not set}
+        B2_S3_ENDPOINT: ${B2_S3_ENDPOINT:?B2_S3_ENDPOINT not set}
+        B2_REGION: ${B2_REGION:?B2_REGION not set}
+        B2_APPLICATION_KEY_ID: ${B2_APPLICATION_KEY_ID:?B2_APPLICATION_KEY_ID not set}
+        B2_APPLICATION_KEY: ${B2_APPLICATION_KEY:?B2_APPLICATION_KEY not set}
+    environment:
+      CDN_CLOUDFLARE_URL: ${CDN_CLOUDFLARE_URL:?CDN_CLOUDFLARE_URL not set}
+      B2_BUCKET_NAME: ${B2_BUCKET_NAME:?B2_BUCKET_NAME not set}
+      B2_S3_ENDPOINT: ${B2_S3_ENDPOINT:?B2_S3_ENDPOINT not set}
+      B2_REGION: ${B2_REGION:?B2_REGION not set}
+      B2_APPLICATION_KEY_ID: ${B2_APPLICATION_KEY_ID:?B2_APPLICATION_KEY_ID not set}
+      B2_APPLICATION_KEY: ${B2_APPLICATION_KEY:?B2_APPLICATION_KEY not set}
+    ports:
+      - "127.0.0.1:4444:4444"
+    env_file:
+      - path: .env
