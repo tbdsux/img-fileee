@@ -89,7 +89,17 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         {children}
         {process.env.NODE_ENV === "development" ? (
           <TanStackRouterDevtools position="bottom-right" />
-        ) : null}
+        ) : (
+          <>
+            {/*  */}
+            <script
+              defer
+              src="https://analytics.tbdh.dev/script.js"
+              data-website-id="069aaef2-af0c-4f75-842b-34ad6bdfa518"
+            ></script>
+          </>
+        )}
+
         <Scripts />
       </body>
     </html>
